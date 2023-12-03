@@ -18,7 +18,7 @@ const Awards = () => {
       };
       const props3 = {
         src:"/wmi.png",
-        title:"Silver Medalist World Mathematics Invitational 2021",
+        title:"Silver Medalist of World Mathematics Invitational 2021",
         description:"Being a Silver Medalist in the World Mathematics Invitational (WMI) 2021 by being among the top 15% of all participants from 21 different countries across the globe",
         skills: ['Algebra', 'Number Theory', 'Combinatorics'], // Update with actual skills
         link: "https://www.linkedin.com/in/ken-balya-4ab644208/details/honors/"
