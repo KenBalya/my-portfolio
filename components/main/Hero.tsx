@@ -4,20 +4,24 @@ import HeroContent from "../sub/HeroContent";
 import { useState, useEffect } from 'react';
 
 const Hero = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 0
+  );
 
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    // Add event listener for window resize
-    window.addEventListener('resize', handleResize);
+    if (typeof window !== 'undefined') {
+      // Add event listener for window resize
+      window.addEventListener('resize', handleResize);
 
-    // Remove event listener on component unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+      // Remove event listener on component unmount
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
   }, []);
   return (
     <div className="relative flex flex-col h-full w-full mb-10" id="about-me">

@@ -11,20 +11,24 @@ import { SparklesIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useState, useEffect } from 'react';
 const HeroContent = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 0
+  );
 
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    // Add event listener for window resize
-    window.addEventListener('resize', handleResize);
+    if (typeof window !== 'undefined') {
+      // Add event listener for window resize
+      window.addEventListener('resize', handleResize);
 
-    // Remove event listener on component unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+      // Remove event listener on component unmount
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
   }, []);
   
   return (

@@ -6,19 +6,23 @@ import { RxCode, RxPerson, RxDashboard, RxClipboard } from "react-icons/rx";
 
 
 const Navbar = () => {
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 512);
+  const [isSmallScreen, setIsSmallScreen] = useState(
+    typeof window !== 'undefined' ? window.innerWidth <= 512 : false
+  );
 
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 512);
     };
 
-    window.addEventListener('resize', handleResize);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', handleResize);
 
-    // Cleanup the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+      // Cleanup the event listener when the component unmounts
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
   }, []);
 
   return (
