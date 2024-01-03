@@ -13,7 +13,7 @@ interface Props {
 const ProjectCard = ({ src, title, description, skills, link }: Props) => {
   link = encodeURI(link);
   return (
-    <div className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] z-50">
+    <div className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] z-40">
       <a href={link}>
       <Image
         src={src}

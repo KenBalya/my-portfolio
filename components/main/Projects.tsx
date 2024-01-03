@@ -14,7 +14,7 @@ const Projects = () => {
     title:"Riviu Buku",
     description:"A website of book collections that provides review and rating features",
     skills: ['Django', 'Tailwind', 'Javascript'], // Update with actual skills
-    link: "https://github.com/Riviu-Buku/riviu-buku"
+    link: "https://riviu-buku-d07-tk.pbp.cs.ui.ac.id/"
   };
   const props3 = {
     src:"/portfolio.png",

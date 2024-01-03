@@ -10,6 +10,7 @@ const Skills = () => {
     <div
     style={{ backgroundImage: "url(/bg-2.jpg)" }}
     className="h-screen w-screen flex items-center justify-center bg-cover bg-center"
+    id="skills"
   >
     <div className="flex flex-col gap-20 max-w-[80%] text-justify items-center">
       <div className="flex flex-col items-center gap-4">

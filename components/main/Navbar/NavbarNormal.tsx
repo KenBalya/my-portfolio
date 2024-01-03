@@ -3,16 +3,17 @@ import { Socials } from "@/constants";
 import Image from "next/image";
 import {useEffect, useState} from "react";
 import { RxCode, RxPerson, RxDashboard, RxClipboard } from "react-icons/rx";
+import { NavbarProps } from "./interface";
+import { Bars3Icon } from '@heroicons/react/24/solid'
 
-
-const Navbar = () => {
+export const NavbarNormal: React.FC<NavbarProps> = ({handleClicked}) => {
   const [isSmallScreen, setIsSmallScreen] = useState(
-    typeof window !== 'undefined' ? window.innerWidth <= 512 : false
+    typeof window !== 'undefined' ? window.innerWidth <= 1024 : false
   );
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 512);
+      setIsSmallScreen(window.innerWidth <= 1024);
     };
 
     if (typeof window !== 'undefined') {
@@ -24,10 +25,9 @@ const Navbar = () => {
       };
     }
   }, []);
-
   return (
-    <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 md:px-10">
-      <div className="w-full h-full flex flex-row items-center justify-between m-auto px-[10px]">
+    <div className="w-full h-[65px] shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 lg:px-10">
+      <div className="w-full h-full flex flex-row items-center justify-between m-auto lg:px-[10px]">
         <a
           href="#about-me"
           className="h-auto w-auto flex flex-row items-center"
@@ -45,8 +45,8 @@ const Navbar = () => {
           </span>
         </a>
 
-        <div className="w-[500px] h-full flex flex-row items-center justify-between md:mr-20">
-          <div className="flex items-center justify-around md:justify-between w-full h-auto md:border md:border-[#7042f861] bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200 ">
+        <div className="w-[500px] h-full hidden md:flex md:flex-row items-center justify-between lg:mr-20">
+          <div className=" hidden md:flex items-center justify-around md:justify-between w-full h-auto md:border md:border-[#7042f861] bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200 ">
             <a href="#about-me" className="cursor-pointer flex">
             <RxPerson/>
             {isSmallScreen ? (
@@ -109,14 +109,8 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-        {isSmallScreen ? (
-              <div>
-              {/* Content for screens less than or equal to 512px */}
-             
-              </div>
-          ) : (
-            <div className="flex flex-row gap-1 md:gap-5">
-          {Socials.map((social) => (
+        <div className="hidden md:flex flex-row gap-1 md:gap-5">
+        {Socials.map((social) => (
             <a href={encodeURI(social.link)} key={social.name}>
             <Image className="scale-50 md:scale-100"
               src={social.src}
@@ -128,12 +122,17 @@ const Navbar = () => {
             </a>
           ))}
         </div>
-            )}
+        <button
+        onClick={handleClicked}
+        className="md:hidden text-[#7042f861] font-bold mr-10"
+        >
+          <Bars3Icon height={30} width={30} />
+        </button>
         
       </div>
     </div>
   );
-};
+}
 
 
-export default Navbar;
+

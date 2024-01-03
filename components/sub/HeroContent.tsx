@@ -35,16 +35,16 @@ const HeroContent = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20]"
+      className="grid grid-cols-1 md:grid-cols-2 items-center justify-center px-20 mt-40 w-full z-[20]"
     >
-      <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-justify">
+      <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-justify order-last md:order-1">
         <motion.div
           variants={slideInFromTop}
           className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[13px]">
-            Fullstack Developer Portfolio
+            Ken's Portfolio
           </h1>
         </motion.div>
 
@@ -76,11 +76,9 @@ const HeroContent = () => {
           Learn More!
         </motion.a>
       </div>
-      {windowWidth > 512 && (
-        // Your div content goes here
         <motion.div
         variants={slideInFromRight(0.8)}
-        className="w-full h-full flex justify-center items-center"
+        className="w-full h-full flex justify-center items-center order-1 md:order-last"
       >
         <Image
           src="/me.png"
@@ -90,7 +88,7 @@ const HeroContent = () => {
 
         />
       </motion.div>
-      )};
+     
 
       
     </motion.div>
