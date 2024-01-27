@@ -23,6 +23,13 @@ const Projects = () => {
     skills: ['Next JS', 'Tailwind', 'React JS'], // Update with actual skills
     link:"#about-me"
   };
+  const props4 = {
+    src:"/betis.svg",
+    title:"BETIS 2024 Website",
+    description:"An E-learning website to host BETIS 2024 to support educational purpose of BETIS organization, such as informations, online learning, and quizes.",
+    skills: ['Next JS', 'Tailwind', 'React JS', 'Django'], // Update with actual skills
+    link:"https://betis.cs.ui.ac.id/"
+  };
   
   return (
     <div
@@ -47,6 +54,9 @@ const Projects = () => {
           <ProjectCard
             {...props3}
           />
+          <ProjectCard
+           {...props4}
+           />
        
         
         
