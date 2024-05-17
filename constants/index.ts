@@ -107,7 +107,7 @@ export const SkillData = [
     {
       name: "Linkedin",
       src: "/linkedin.png",
-      link:"www.linkedin.com/in/ken-balya-4ab644208"
+      link:"https://www.linkedin.com/in/ken-balya-4ab644208/"
     },
     {
       name: "Github",
